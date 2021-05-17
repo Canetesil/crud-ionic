@@ -15,7 +15,7 @@ export class ClientePage implements OnInit {
 private clienteId:string = null;
 //public cliente:Cliente = {} ;
 cliente = {} as Cliente;
-private carregarCliente:any;
+private carregarClientes:any;
 private clienteSubscription: Subscription;
 
   constructor(
@@ -28,14 +28,14 @@ private clienteSubscription: Subscription;
     this.clienteId = this.activateRoute.snapshot.params['id'];
     
     if(this.clienteId)
-    this.carregarClinte();
+    this.carregarCliente();
 
    }
 
   ngOnInit() {
   }
   
-  carregarClinte(){
+  carregarCliente(){
     this.clienteSubscription = this.clienteService.mostraCliente
     (this.clienteId).subscribe(data => {this.cliente = data});
   }
